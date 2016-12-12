@@ -1,1 +1,0 @@
-In diesen Ordner die Dokumentation zum Projekt speichern.
