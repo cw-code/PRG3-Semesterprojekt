@@ -1,0 +1,57 @@
+Textuelle Beschreibung des BluRay-Kreisel
+
+Das Projekt sieht vor eine BluRay-Verwaltung zu ermöglichen.
+Kunden können ein Kundenkonto anlegen.
+Kunden können pers. Kundendaten einsehen/bearbeiten.
+Kunden können Kundenkonto löschen. *BluRays werden dabei bereinigt.
+Kunden können sich einloggen. Andere Benutzer können nur stöbern, nicht bestellen.
+Kunden können BluRays inventarsieren/entfernen.
+Kunden können BluRays von anderen Kunden in den Warenkorb (WK) legen/aus dem WK entfernen.
+*Kunden können Kunden bewerten.
+Inventarisierte BluRays können nach Kriterien (Genre, Titel, Verfügbarkeit, FSK) angesehen werden.
+Inventarisierte BluRays haben ein Attribut „Verfügbarkeit“.
+WK kann „bestellt“ werden.
+WK hat eine Funktion zur Berechnung der Kosten (Porto).
+Kunden können sich für einen Newsletter registrieren (Neu-Inventarisierung, Wunschzettel/Verfügbarkeit).
+Ausleihzeitraum wird auf 7 Tage (Lieferung + Anschauen) festgelegt. *Evtl. Erinnerungs-Mail.
+
+Klasse Kunde:
+Attribute:
+	+ Benutzername
+	+ *Telefonnummer
+	- Nachname
+	- Vorname
+	- Straße
+	- HNR
+	- PLZ
+	- Ort
+	- E-Mail
+	- Geburtsdatum << FSK
+	- Versandart (DHL / Packstation / Hermes / UPS)
+	- Wunschzettel (als Container << LIST) 
+Methoden:
+	Getter()/Setter() für private Attribute
+	kundenKonto_loeschen()
+
+Klasse BluRay:
+Attribute:
+	+ Titel
+	+ Genre
+	+ FSK
+	+ Verfügbarkeit
+
+Methoden:
+	statusChange()
+Klasse Warenkorb:
+Attribute:
+	LIST BluRays
+	preisPorto
+
+Methoden:
+	aufnehmen()
+	entfernen()
+	bestellen()
+	
+Klasse Newsletter:
+Attribute:
+	- MAP << Zuordnung Kunde zu BluRay (Wunschzettel/Verfügbarkeitsänderung)
