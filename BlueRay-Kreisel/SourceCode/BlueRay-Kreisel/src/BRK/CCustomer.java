@@ -13,7 +13,7 @@ import java.util.*;
 public class CCustomer {
     private String m_LastName;
     private String m_PreName;
-    private Date m_Birthday;
+    private String m_Birthday;
     private String m_EMail;
     private String m_Password;
     
@@ -24,7 +24,7 @@ public class CCustomer {
     // List of my borrowed bluRays
     ArrayList<CBluRay> myBorBluRayList = new ArrayList<>();
     
-    public CCustomer(String _LastName, String _PreName, Date _Birthday, String _EMail, String _Password){
+    public CCustomer(String _LastName, String _PreName, String _Birthday, String _EMail, String _Password){
         this.m_LastName = _LastName;
         this.m_PreName = _PreName;
         this.m_Birthday = _Birthday;
@@ -64,11 +64,11 @@ public class CCustomer {
         this.m_EMail = m_EMail;
     }
 
-    public Date getBirthday() {
+    public String getBirthday() {
         return m_Birthday;
     }
 
-    public void setBirthday(Date m_Birthday) {
+    public void setBirthday(String m_Birthday) {
         this.m_Birthday = m_Birthday;
     }
     
