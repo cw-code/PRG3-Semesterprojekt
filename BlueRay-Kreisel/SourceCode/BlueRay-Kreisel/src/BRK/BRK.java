@@ -22,15 +22,13 @@ public class BRK {
         ArrayList<CCustomer> myCustList = new ArrayList<>();
         
         // create test-customer
-        Date myDate = new Date();
+        String myDate = "07.02.1988";
         CCustomer myEckardt = new CCustomer("Eckardt", "Marco", myDate, "marco.eckardt@fh-erfurt.de", "123456");
         myCustList.add(myEckardt);
         
         // create test-bluray
-        CBluRay myBatman = new CBluRay("Batman", "Action", 12);
-        CBluRay myMinions = new CBluRay("Minions", "Trickfilm", 0);
-        myEckardt.gatherBluRay(myBatman);
-        myEckardt.gatherBluRay(myMinions);
+        CBluRay myBatman = new CBluRay("Batman", "Action", 12, myEckardt);
+        CBluRay myMinions = new CBluRay("Minions", "Trickfilm", 0, myEckardt);
         
         // printout test-customer and test-bluray
         System.out.println(myCustList.size());
@@ -40,6 +38,8 @@ public class BRK {
         // test to delete bluray
         myEckardt.deleteBluRay("Batman");
         myEckardt.printList(myEckardt.myBluRayList);
+        
+        myEckardt.myBasket.toBasket(myBatman);
     }
     
 }

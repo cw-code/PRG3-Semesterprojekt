@@ -24,6 +24,9 @@ public class CCustomer {
     // List of my borrowed bluRays
     ArrayList<CBluRay> myBorBluRayList = new ArrayList<>();
     
+    // Basket of Customer
+    CBasket myBasket;
+    
     public CCustomer(String _LastName, String _PreName, String _Birthday, String _EMail, String _Password){
         this.m_LastName = _LastName;
         this.m_PreName = _PreName;

@@ -10,14 +10,17 @@ package BRK;
  * @author Marco
  */
 public class CBluRay {
+    private CCustomer m_Owner;
     private String m_Titel;
     private String m_Genre;
     private int m_FSK;
     
-    public CBluRay(String _Titel, String _Genre, int _FSK){
+    public CBluRay(String _Titel, String _Genre, int _FSK, CCustomer _Owner){
+        this.m_Owner = _Owner;
         this.m_Titel = _Titel;
         this.m_Genre = _Genre;
         this.m_FSK = _FSK;
+        _Owner.gatherBluRay(this);
     }
 
     public String getTitel() {
