@@ -5,18 +5,28 @@
  */
 package BRK;
 
+// OWNER: this is my BR
+// LENT: i borrowed my BR to somebody
+// RENT: i borrowed a BR from somebody
+enum BRState 
+{ 
+    OWNER, LENT, RENT; 
+}
+
 /**
  *
  * @author Marco
  */
 public class CBluRay {
     private CCustomer m_Owner;
+    private BRState m_State;
     private String m_Titel;
     private String m_Genre;
     private int m_FSK;
     
-    public CBluRay(String _Titel, String _Genre, int _FSK, CCustomer _Owner){
+    public CBluRay( CCustomer _Owner, BRState _State, String _Titel, String _Genre, int _FSK ){
         this.m_Owner = _Owner;
+        this.m_State = _State;
         this.m_Titel = _Titel;
         this.m_Genre = _Genre;
         this.m_FSK = _FSK;
