@@ -20,25 +20,25 @@ enum BRState
 public class CBluRay {
     private CCustomer m_Owner;
     private BRState m_State;
-    private String m_Titel;
+    private String m_Title;
     private String m_Genre;
     private int m_FSK;
     
-    public CBluRay( CCustomer _Owner, BRState _State, String _Titel, String _Genre, int _FSK ){
+    public CBluRay( CCustomer _Owner, BRState _State, String _Title, String _Genre, int _FSK ){
         this.m_Owner = _Owner;
         this.m_State = _State;
-        this.m_Titel = _Titel;
+        this.m_Title = _Title;
         this.m_Genre = _Genre;
         this.m_FSK = _FSK;
         _Owner.gatherBluRay(this);
     }
 
-    public String getTitel() {
-        return m_Titel;
+    public String getTitle() {
+        return m_Title;
     }
 
-    public void setTitel(String m_Titel) {
-        this.m_Titel = m_Titel;
+    public void setTitle(String m_Title) {
+        this.m_Title = m_Title;
     }
 
     public String getGenre() {

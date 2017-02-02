@@ -14,7 +14,7 @@ import java.util.*;
 public class BRK {        
     
     // List of all Customers
-    ArrayList<CCustomer> myCustList = new ArrayList<>();
+    public ArrayList<CCustomer> myCustList = new ArrayList<>();
         
     public ArrayList<CBluRay> getAllBR()
     {
@@ -30,6 +30,21 @@ public class BRK {
         return myList;
     }
     
+    public CBluRay searchBR(String _Arg)
+    {
+        CBluRay retBR = null;
+        
+        for(CBluRay b : this.getAllBR())
+        {
+            if (b.getTitle().equals(_Arg))
+            {
+                retBR = b;
+            }
+        }
+        
+        return retBR;
+    }
+    
         
     public static void main(String[] args) {
         /**
@@ -38,41 +53,31 @@ public class BRK {
         
         BRK myBRK = new BRK();
 
-        
         // create test-customer
-        String myDate = "07.02.1988";
-        CCustomer myEckardt = new CCustomer("Eckardt", "Marco", myDate, "marco.eckardt@fh-erfurt.de", "123456");
+        CCustomer myEckardt = new CCustomer("Eckardt", "Marco", "07.02.1988", "marco.eckardt@fh-erfurt.de", "123456");
         myBRK.myCustList.add(myEckardt);
         
         // create test-bluray
         CBluRay myBatman = new CBluRay( myEckardt, BRState.OWNER, "Batman", "Action", 12);
         CBluRay myMinions = new CBluRay( myEckardt, BRState.OWNER, "Minions", "Trickfilm", 0);
         
-        // printout test-customer and test-bluray
-        System.out.println(myBRK.myCustList.size());
-        System.out.println(myBRK.myCustList.get(0).getBirthday().toString());
-        //myEckardt.printList(myEckardt.myBluRayList);
+        // test search funtion
+        //CBluRay mySearch = myBRK.searchBR("Batman");
+
+        // test delete BR
+        myEckardt.deleteBluRay("Minions");
         
-        // test to delete bluray
-        //myEckardt.deleteBluRay("Batman");
-        myEckardt.printList(myEckardt.myBluRayList);
-        
-        for(CBluRay b : myBRK.getAllBR())
-        {
-            b.getTitel();
-        }
-        
+        // test toBasket Basket
         //myEckardt.myBasket.toBasket(myBatman);
         
+        // test send Basket
+        //myEckardt.myBasket.sendBasket();
         
-       
         // TO-DO
         // REGISTRIERUNG
         // LOGIN-Funktion
-        // alle Kunden in einer Liste in BRK sichern
         // Anzeigen der BluRays aller anderen Kunden
         // BluRay suchen nach Titel od. Genre, FSK...
-        // BluRay in Warenkorb aufnehmen
         // Warenkorb absenden, damit BluRay meiner Liste mit Attribut ausgeliehen hizufügen
         // ENUM (VERLIEHEN, AUSGELIEHEN, VERFÜGBAR)
         // BluRay Rückgabe

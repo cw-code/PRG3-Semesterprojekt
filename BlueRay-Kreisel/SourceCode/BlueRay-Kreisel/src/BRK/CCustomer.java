@@ -19,11 +19,7 @@ public class CCustomer {
     
     // List of my own bluRays
     ArrayList<CBluRay> myBluRayList = new ArrayList<>();
-    // List of my distributed bluRays
-    ArrayList<CBluRay> myDistrBluRayList = new ArrayList<>();
-    // List of my borrowed bluRays
-    ArrayList<CBluRay> myBorBluRayList = new ArrayList<>();
-    
+   
     // Basket of Customer
     CBasket myBasket;
     
@@ -78,7 +74,7 @@ public class CCustomer {
     public void printList(ArrayList<CBluRay> _List){
         for(CBluRay b : _List)
         {
-            System.out.println(b.getTitel());
+            System.out.println(b.getTitle());
         }
     }
     
@@ -88,12 +84,17 @@ public class CCustomer {
     }
     
     // delete the bluray (m_title) _BluRay from list myBluRayList
-    public void deleteBluRay(String _Titel){
+    public void deleteBluRay(String _Title){
+        CBluRay element = null;
+        
         for(CBluRay b : this.myBluRayList)
         {
-            if (b.getTitel().equals(_Titel)) {
-                this.myBluRayList.remove(b);
+            if (b.getTitle().equals(_Title)) 
+            {
+                element = b;
+                break;
             }
         }
+        this.myBluRayList.remove(element);
     }
 }

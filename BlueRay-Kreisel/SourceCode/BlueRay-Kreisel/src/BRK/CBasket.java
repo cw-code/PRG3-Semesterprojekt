@@ -15,12 +15,16 @@ public class CBasket {
     int m_Count = 0;
     ArrayList<CBluRay> myBasket = new ArrayList<>();
     
-    // BluRay to Basket
+    // BluRay to Basket, Counter++
     public void toBasket(CBluRay _BluRay){
         myBasket.add(_BluRay);
+        m_Count++;
     }
     
     public void sendBasket(){
-        
+        for(CBluRay b : myBasket)
+        {     
+            System.out.println(b.getTitle());
+        }  
     }
 }
