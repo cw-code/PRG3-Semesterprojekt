@@ -25,7 +25,7 @@ public class CBasket {
      */
     public void toBasket(BRK _BRK, CCustomer _From, CCustomer _Me, CBluRay _BR)
     {
-        if (_BRK.checkFSK(_Me, _BR) && _BR.getRentTo().equals(null))
+        if ( _BRK.checkFSK(_Me, _BR) && _BR.getRentTo() != null )
         {
             _BR.setState(BRState.LENT);
             _BR.setLRDate(new Date());
