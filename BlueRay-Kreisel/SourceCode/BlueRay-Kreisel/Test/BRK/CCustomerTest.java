@@ -5,13 +5,8 @@
  */
 package BRK;
 
-import java.util.ArrayList;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import java.util.*;
+import org.junit.*;
 import static org.junit.Assert.*;
 
 enum BRState 
@@ -40,7 +35,7 @@ public class CCustomerTest {
     @Before
     public void setUp() 
     {
-        wagner = new CCustomer("Wagner", "Christoph", "06.09.1994", "cw@web.de", "123456");
+        wagner = new CCustomer("Wagner", "Christoph", "06.09.1994", "cw@web.de", "123456", myBRK);
         minions = new CBluRay(wagner, BRState.OWNER , "Minions", "Kinder", 12);
         HouseOfCards = new CBluRay(wagner, BRState.OWNER , "HouseOfCards", "Politik-Drama", 16);
     }

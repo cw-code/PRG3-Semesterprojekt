@@ -23,12 +23,12 @@ public class CCustomer {
     // Basket of Customer
     CBasket myBasket;
     
-    public CCustomer(String _LastName, String _PreName, String _Birthday, String _EMail, String _Password){
+    public CCustomer(String _LastName, String _PreName, String _Birthday, String _EMail, String _Password, BRK _BRK){
         this.m_LastName = _LastName;
         this.m_PreName = _PreName;
         this.m_Birthday = _Birthday;
         this.m_EMail = _EMail;
-        this.m_Password = _Password;
+        this.m_Password = _BRK.passwordToHash(_Password);
     }
 
     public String getPassword() {
