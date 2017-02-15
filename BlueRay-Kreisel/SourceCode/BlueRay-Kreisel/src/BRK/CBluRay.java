@@ -6,6 +6,9 @@
 package BRK;
 
 // OWNER: this is my BR
+
+import java.util.*;
+
 // LENT: i borrowed my BR to somebody
 // RENT: i borrowed a BR from somebody
 enum BRState 
@@ -19,6 +22,9 @@ enum BRState
  */
 public class CBluRay {
     private CCustomer m_Owner;
+    private CCustomer m_LentFrom = null;
+    private CCustomer m_RentTo = null;
+    private Date m_LRDate = null;
     private BRState m_State;
     private String m_Title;
     private String m_Genre;
@@ -30,7 +36,48 @@ public class CBluRay {
         this.m_Title = _Title;
         this.m_Genre = _Genre;
         this.m_FSK = _FSK;
-        _Owner.gatherBluRay(this);
+        _Owner.gatherBR(this);
+    }
+    
+    
+    public CCustomer getOwner() {
+        return m_Owner;
+    }
+
+    public void setOwner(CCustomer _Owner) {
+        this.m_Owner = _Owner;
+    }
+    
+    public CCustomer getLentFrom() {
+        return m_LentFrom;
+    }
+
+    public void setLentFrom(CCustomer _LentFrom) {
+        this.m_LentFrom = _LentFrom;
+    }
+
+    public CCustomer getRentTo() {
+        return m_RentTo;
+    }
+
+    public void setRentTo(CCustomer _RentTo) {
+        this.m_RentTo = _RentTo;
+    }
+
+    public Date getLRDate() {
+        return m_LRDate;
+    }
+
+    public void setLRDate(Date _LRDate) {
+        this.m_LRDate = _LRDate;
+    }
+
+    public BRState getState() {
+        return m_State;
+    }
+
+    public void setState(BRState _State) {
+        this.m_State = _State;
     }
 
     public String getTitle() {

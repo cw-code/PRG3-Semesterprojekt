@@ -13,16 +13,36 @@ import java.util.*;
  */
 public class CBasket {
     int m_Count = 0;
-    ArrayList<CBluRay> myBasket = new ArrayList<>();
+    ArrayList<CBluRay> BasketList = new ArrayList<>();
     
-    // BluRay to Basket, Counter++
-    public void toBasket(CBluRay _BluRay){
-        myBasket.add(_BluRay);
-        m_Count++;
+    
+    /**
+     * puts a BR to basket, if checkFSK is true and BR is available
+     * @param _BRK
+     * @param _From
+     * @param _Me
+     * @param _BR
+     */
+    public void toBasket(BRK _BRK, CCustomer _From, CCustomer _Me, CBluRay _BR)
+    {
+        if (_BRK.checkFSK(_Me, _BR) && _BR.getRentTo().equals(null))
+        {
+            _BR.setState(BRState.LENT);
+            _BR.setLRDate(new Date());
+            _BR.setLentFrom(_From);
+            _BR.setRentTo(_Me);
+            BasketList.add(_BR);
+            m_Count++;
+        }
     }
     
-    public void sendBasket(){
-        for(CBluRay b : myBasket)
+    
+    /**
+     *
+     */
+    public void sendBasket()
+    {
+        for(CBluRay b : BasketList)
         {     
             System.out.println(b.getTitle());
         }  

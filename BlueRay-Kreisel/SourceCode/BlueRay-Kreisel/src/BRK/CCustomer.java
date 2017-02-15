@@ -18,10 +18,10 @@ public class CCustomer {
     private String m_Password;
     
     // List of my own bluRays
-    ArrayList<CBluRay> myBluRayList = new ArrayList<>();
+    ArrayList<CBluRay> myBRList = new ArrayList<>();
    
     // Basket of Customer
-    CBasket myBasket;
+    CBasket myBasket = new CBasket();
     
     public CCustomer(String _LastName, String _PreName, String _Birthday, String _EMail, String _Password, BRK _BRK){
         this.m_LastName = _LastName;
@@ -71,23 +71,27 @@ public class CCustomer {
         this.m_Birthday = m_Birthday;
     }
     
-    public void printList(ArrayList<CBluRay> _List){
-        for(CBluRay b : _List)
+    // gather the bluray _BluRay to list myBRList
+    public void gatherBR(CBluRay _BluRay){
+        Boolean existBR = false;
+        
+        // checks if BR allready exists
+        for(CBluRay b : this.myBRList)
         {
-            System.out.println(b.getTitle());
+            if (b.getTitle().equalsIgnoreCase(_BluRay.getTitle()))
+                existBR = true;
         }
+        
+        if (!existBR) 
+            this.myBRList.add(_BluRay);
+        
     }
     
-    // gather the bluray _BluRay to list myBluRayList
-    public void gatherBluRay(CBluRay _BluRay){
-        this.myBluRayList.add(_BluRay);
-    }
-    
-    // delete the bluray (m_title) _BluRay from list myBluRayList
-    public void deleteBluRay(String _Title){
+    // delete the bluray (m_title) _BluRay from list myBRList
+    public void deleteBR(String _Title){
         CBluRay element = null;
         
-        for(CBluRay b : this.myBluRayList)
+        for(CBluRay b : this.myBRList)
         {
             if (b.getTitle().equals(_Title)) 
             {
@@ -95,6 +99,6 @@ public class CCustomer {
                 break;
             }
         }
-        this.myBluRayList.remove(element);
+        this.myBRList.remove(element);
     }
 }

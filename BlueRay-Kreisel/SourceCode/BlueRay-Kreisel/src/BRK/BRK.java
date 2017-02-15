@@ -7,6 +7,9 @@ package BRK;
 
 import java.util.*;
 import java.security.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.Period;
 
 /**
  *
@@ -142,7 +145,7 @@ public class BRK {
         {
             if (c.getEMail().equalsIgnoreCase(_Me.getEMail()))
             {
-                for(CBluRay b : c.myBluRayList)
+                for(CBluRay b : c.myBRList)
                 {
                     retAllBRList.add(b);
                 }  
@@ -156,23 +159,62 @@ public class BRK {
     
     
     /**
-     * searches a BR in BRK with specific title, returns a BR-object
+     * searches a BR in BRK with specific title, genre or FSK, returns a BR-list
      * @param _Arg
      * @return
      */
-    public CBluRay searchBR(CCustomer _Me, String _Arg)
+    public ArrayList<CBluRay> searchBR(CCustomer _Me, String _Arg)
     {
-        CBluRay retSearchBR = null;
+        ArrayList<CBluRay> retSearchBR = new ArrayList();
         
         for(CBluRay b : this.showAllBR(_Me))
         {
-            if (b.getTitle().equalsIgnoreCase(_Arg))
+            if (b.getTitle().equalsIgnoreCase(_Arg) || b.getGenre().equalsIgnoreCase(_Arg) || b.getFSK() == Integer.parseInt(_Arg) )
             {
-                retSearchBR = b;
+                retSearchBR.add(b);
             }
         }
         
         return retSearchBR;
+        
+    }
+    
+    
+    /**
+     * checks FSK <==> age of user, returns true/ false
+     * @param _Me
+     * @param _BR
+     * @return
+     */
+    public Boolean checkFSK(CCustomer _Me, CBluRay _BR)
+    {
+        Boolean succ = false;
+        SimpleDateFormat df = new SimpleDateFormat("dd.MM.yyyy");
+        
+        try 
+        {
+            if (new Date().getYear() - df.parse(_Me.getBirthday()).getYear() >= _BR.getFSK())
+                succ = true;
+        } 
+        catch (ParseException e) 
+        {
+            e.printStackTrace();
+        }
+        
+        return succ;
+        
+    }
+    
+    
+    /**
+     * render a list of BR-objects
+     * @param _List
+     */
+    public void printBRList(ArrayList<CBluRay> _List){
+        for(CBluRay b : _List)
+        {
+            System.out.println(b.getTitle());
+        }
     }
     
     
@@ -206,7 +248,7 @@ public class BRK {
         {
             
             case "1":
-                myBRK.register(myBRK);
+                while (!myBRK.register(myBRK));
             
             case "2":
                 mySessionUser = myBRK.login(myBRK);
@@ -218,33 +260,31 @@ public class BRK {
         }
         
         // create test-bluray
-        CBluRay myBatman = new CBluRay( myUser, BRState.OWNER, "Batman", "Action", 12);
-        CBluRay myMinions = new CBluRay( myUser, BRState.OWNER, "Minions", "Trickfilm", 0);
-        CBluRay myTitanic = new CBluRay( mySessionUser, BRState.OWNER, "Titanic", "Drama", 0);
+        CBluRay myBR = new CBluRay( myUser, BRState.OWNER, "Batman", "Action", 12);
+        myBR= new CBluRay( myUser, BRState.OWNER, "Minions", "Trickfilm", 0);
+        myBR = new CBluRay( mySessionUser, BRState.OWNER, "Titanic", "Drama", 0);
+        myBR = new CBluRay( mySessionUser, BRState.OWNER, "Titanic", "Drama", 0);
+        
+        myBRK.checkFSK(mySessionUser, myBR);
         
         // test search funtion
-        //CBluRay mySearch = myBRK.searchBR( mySessionUser, "Batman");
-        //System.out.println(mySearch.getGenre());
+        //myBRK.printBRList(myBRK.searchBR( mySessionUser, "12"));
 
         // test show all
-        for(CBluRay b : myBRK.showAllBR(myUser))
-        {
-            System.out.println(b.getTitle());
-        }
+        //myBRK.printBRList(myBRK.showAllBR(myUser));
         
         // test delete BR
-        //mySessionUser.deleteBluRay("Minions");
-        
+        //mySessionUser.deleteBR("Minions");
+
         // test toBasket Basket
-        //mySessionUser.myBasket.toBasket(myBatman);
-        
+        //mySessionUser.myBasket.toBasket(myBRK, myBR.getOwner(), mySessionUser, myBR);
+        //myBRK.printBRList(mySessionUser.myBasket.BasketList);
+
         // test send Basket
         //mySessionUser.myBasket.sendBasket();
         
         // TO-DO
-        // BluRay suchen nach Titel od. Genre, FSK...
         // Warenkorb absenden, damit BluRay meiner Liste mit Attribut ausgeliehen hizufügen
-        // ENUM (VERLIEHEN, AUSGELIEHEN, VERFÜGBAR)
         // BluRay Rückgabe
         // Newsletter
     }
