@@ -71,23 +71,31 @@ public class CCustomer {
         this.m_Birthday = m_Birthday;
     }
     
-    // gather the bluray _BluRay to list myBRList
-    public void gatherBR(CBluRay _BluRay){
+
+    /**
+     * gather the bluray _BR to list myBRList
+     * @param _BR
+     */
+    public void gatherBR(CBluRay _BR){
         Boolean existBR = false;
         
         // checks if BR allready exists
         for(CBluRay b : this.myBRList)
         {
-            if (b.getTitle().equalsIgnoreCase(_BluRay.getTitle()))
+            if (b.getTitle().equalsIgnoreCase(_BR.getTitle()))
                 existBR = true;
         }
         
         if (!existBR) 
-            this.myBRList.add(_BluRay);
+            this.myBRList.add(_BR);
         
     }
     
-    // delete the bluray (m_title) _BluRay from list myBRList
+
+    /**
+     * deletes a BR from my list
+     * @param _Title
+     */
     public void deleteBR(String _Title){
         CBluRay element = null;
         

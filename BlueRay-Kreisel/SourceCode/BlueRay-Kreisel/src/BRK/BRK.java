@@ -9,7 +9,6 @@ import java.util.*;
 import java.security.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.Period;
 
 /**
  *
@@ -65,7 +64,7 @@ public class BRK {
     
     
     /**
-     * generates a hash out of the password, returns the hash
+     * generates a hash out of the password, returns the hash *copy-paste from inet*
      * @param _Password
      * @return
      */
