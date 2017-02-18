@@ -7,8 +7,7 @@ package BRK;
 
 import java.util.*;
 import java.security.*;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.text.*;
 
 /**
  *
@@ -18,6 +17,9 @@ public class BRK {
     
     // List of all Customers
     public ArrayList<CCustomer> myCustList = new ArrayList<>();
+    
+    // Newsletter Object
+    CNewsletter myNewsletter = new CNewsletter();
     
     /**
      * register an user to BRK, returns true/ false if succesfull
@@ -265,6 +267,9 @@ public class BRK {
         myBR = new CBluRay( mySessionUser, BRState.OWNER, "Titanic", "Drama", 0);
         
         myBRK.checkFSK(mySessionUser, myBR);
+        
+        // test add to newsletter
+        //myBRK.myNewsletter.putToNewsletter(mySessionUser, "Drama");
         
         // test search funtion
         //myBRK.printBRList(myBRK.searchBR( mySessionUser, "12"));

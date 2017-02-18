@@ -38,13 +38,13 @@ public class CBasket {
     
     
     /**
-     *
+     * "buy" the basket
      */
-    public void sendBasket()
+    public void sendBasket(CCustomer _Me)
     {
         for(CBluRay b : BasketList)
         {     
-            System.out.println(b.getTitle());
+            _Me.myBRList.add(b);
         }  
     }
 }
