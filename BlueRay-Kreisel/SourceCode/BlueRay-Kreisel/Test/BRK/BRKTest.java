@@ -23,14 +23,6 @@ public class BRKTest {
     public BRKTest() {
     }
     
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
     @Before
     public void setUp() {
     }
@@ -122,8 +114,6 @@ public class BRKTest {
         ArrayList<CBluRay> result2 = instance.showAllBR(instance.myCustList.get(0));
         Assert.assertEquals(3, result2.size());
         
-        // Geht nicht ganz!!!
-        
     }
 
     /**
@@ -141,7 +131,7 @@ public class BRKTest {
         instance.register(instance, "Heinz", "Klaus", "08.04.1990", "heinz@web.de", "158545454");
         CBluRay BR1 = new CBluRay( instance.myCustList.get(0), BRState.OWNER, "Minions", "Kinder", 12);
         CBluRay BR2 = new CBluRay( instance.myCustList.get(1), BRState.OWNER, "Transformers", "Kinder", 12);
-        CBluRay BR3 = new CBluRay( instance.myCustList.get(2), BRState.OWNER, "EscapePlan", "Kinder", 12);
+        CBluRay BR3 = new CBluRay( instance.myCustList.get(2), BRState.OWNER, "EscapePlan", "Kinder", 16);
         CBluRay BR4 = new CBluRay( instance.myCustList.get(3), BRState.OWNER, "Scrubs", "Kinder", 12);
         
         instance.myCustList.get(0).gatherBR(BR1);
@@ -149,16 +139,12 @@ public class BRKTest {
         instance.myCustList.get(2).gatherBR(BR3);
         instance.myCustList.get(3).gatherBR(BR4);
         
-        // Geht auch nicht!!!
+        ArrayList<CBluRay> result = instance.searchBR(instance.myCustList.get(1),"Minions");
+        assertEquals(1, result.size());
         
-        //ArrayList<CBluRay> result = instance.searchBR(instance.myCustList.get(0), "Minions");
-        //Assert.assertEquals(2, result.size());
+        result = instance.searchBR(instance.myCustList.get(0), "Kinder");
+        assertEquals(3, result.size());
         
-        //result = instance.searchBR(Me, "Kinder");
-        //Assert.assertEquals(3, result.size());
-        
-        //result = instance.searchBR(Me, "16");
-        //Assert.assertEquals(1, result.size());
     }
 
     /**

@@ -26,32 +26,32 @@ public class BRK {
      * @param _BRK
      * @return
      */
-    public Boolean register(BRK _BRK)
+    public Boolean register(BRK _BRK, String lastName, String preName, String birthday, String email, String password)
     {
         Boolean succ = false;
         
         Scanner register = new Scanner(System.in);
 
-        String lastName;
-        String preName;
-        String birthday;
-        String email;
-        String password;
+        //String lastName;
+        //String preName;
+        //String birthday;
+        //String email;
+        //String password;
 
-        System.out.println("REG: lastName: ");
-        lastName = register.nextLine();
+        //System.out.println("REG: lastName: ");
+        //lastName = register.nextLine();
         
-        System.out.println("REG: preName: ");
-        preName = register.nextLine();
+        //System.out.println("REG: preName: ");
+        //preName = register.nextLine();
         
-        System.out.println("REG: birthday: ");
-        birthday = register.nextLine();
+        //System.out.println("REG: birthday: ");
+        //birthday = register.nextLine();
         
-        System.out.println("REG: email: ");
-        email = register.nextLine();
+        //System.out.println("REG: email: ");
+        //email = register.nextLine();
         
-        System.out.println("REG: password: ");
-        password = register.nextLine();
+        //System.out.println("REG: password: ");
+        //password = register.nextLine();
         
         if (lastName != null && preName != null && birthday != null && email != null && password != null)
         {
@@ -100,19 +100,19 @@ public class BRK {
      * @param _BRK
      * @return
      */
-    public CCustomer login(BRK _BRK)
+    public CCustomer login(BRK _BRK, String email,String password)
     {
         Scanner login = new Scanner(System.in);
 
-        String email;
-        String password;
+        //String email;
+        //String password;
         CCustomer myUserObject = null;
 
-        System.out.println("LOGIN email: ");
-        email = login.nextLine();
+        //System.out.println("LOGIN email: ");
+        //email = login.nextLine();
 
-        System.out.println("LOGIN password: ");
-        password = login.nextLine();
+        //System.out.println("LOGIN password: ");
+        //password = login.nextLine();
         
         for(CCustomer c : this.myCustList)
         {
@@ -170,7 +170,7 @@ public class BRK {
         
         for(CBluRay b : this.showAllBR(_Me))
         {
-            if (b.getTitle().equalsIgnoreCase(_Arg) || b.getGenre().equalsIgnoreCase(_Arg) || b.getFSK() == Integer.parseInt(_Arg) )
+            if (b.getTitle().equalsIgnoreCase(_Arg) || b.getGenre().equalsIgnoreCase(_Arg))
             {
                 retSearchBR.add(b);
             }
