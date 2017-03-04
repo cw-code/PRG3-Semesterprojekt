@@ -4,11 +4,9 @@
  * and open the template in the editor.
  */
 package BRK;
-
-// OWNER: this is my BR
-
 import java.util.*;
 
+// OWNER: this is my BR
 // LENT: i borrowed my BR to somebody
 // RENT: i borrowed a BR from somebody
 enum BRState 

@@ -2,6 +2,14 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group/>
+=======
+        <group>
+            <file>file:/C:/Users/Christoph/Documents/GitHub/PRG3-Semesterprojekt/BlueRay-Kreisel/SourceCode/BlueRay-Kreisel/Test/BRK/BRKTest.java</file>
+            <file>file:/C:/Users/Christoph/Documents/GitHub/PRG3-Semesterprojekt/BlueRay-Kreisel/SourceCode/BlueRay-Kreisel/src/BRK/BRK.java</file>
+            <file>file:/C:/Users/Christoph/Documents/GitHub/PRG3-Semesterprojekt/BlueRay-Kreisel/SourceCode/BlueRay-Kreisel/Test/BRK/CBasketTest.java</file>
+        </group>
+>>>>>>> 98f3567ee90dd6a0cf5a82e1c9a7dc0c61dbd0ae
     </open-files>
 </project-private>

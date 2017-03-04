@@ -1,3 +1,0 @@
-- Textbeschreibung um PROSA ergänzen ;-)
-- UML-Diagramm (Klassen / Relationship) << evtl. geeignetes Tool!?
-- PAP für Prozesse (z.B. Registrierung / Inventarisierung / Bestellung) << evtl. geeignetes Tool!?

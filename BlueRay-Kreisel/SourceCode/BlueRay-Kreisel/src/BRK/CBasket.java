@@ -39,6 +39,8 @@ public class CBasket {
     
     /**
      * "buy" the basket
+     * TODO: set BR in owners-list to new state LENT
+     *       reminder to send back BR to owner
      */
     public void sendBasket(CCustomer _Me)
     {

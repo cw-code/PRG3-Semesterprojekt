@@ -17,7 +17,7 @@ public class CCustomer {
     private String m_EMail;
     private String m_Password;
     
-    // List of my own bluRays
+    // BR-List of Customer
     ArrayList<CBluRay> myBRList = new ArrayList<>();
    
     // Basket of Customer
@@ -86,6 +86,7 @@ public class CCustomer {
                 existBR = true;
         }
         
+        // if BR not exists, add to myBRList
         if (!existBR) 
             this.myBRList.add(_BR);
         

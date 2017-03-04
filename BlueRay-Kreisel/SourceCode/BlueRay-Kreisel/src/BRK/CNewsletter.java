@@ -49,12 +49,22 @@ public class CNewsletter {
     
     
     /**
-     * sends a newsletter to all registered customer to a newsletter-genre
+     * returns an list of all registered customer to a newsletter-genre
      * @param _Genre
      */
-    public void sendNewsletter(String _Genre)
+    public ArrayList<CCustomer> sendNewsletter(String _Genre)
     {
-        // TODO
+        ArrayList<CCustomer> retCustomerList = new ArrayList();
+        
+        List<CCustomer> myCustList = map.get( _Genre );
+        
+        if( myCustList != null ) {
+            for(CCustomer c : myCustList)
+            {
+                retCustomerList.add(c);
+            }
+        }
+        return retCustomerList;
     }
     
 }
