@@ -12,6 +12,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import java.util.*;
 
 /**
  *
@@ -94,6 +95,39 @@ public class CNewsletterTest {
         Assert.assertEquals(0,Newsletterlist.map.get("Drama").size());
         Newsletterlist.deleteFromNewsletter(Cust1, "Heimatfilme");
         Assert.assertEquals(2,Newsletterlist.map.get("Heimatfilme").size());
+    }
+    
+    /**
+     * Test of testsendNewsletter method, of class CNewsletter.
+     */
+    @Test
+    public void testsendNewsletter() {
+        System.out.println("deleteFromNewsletter");
+        BRK _BRK = new BRK();
+        CCustomer Cust1 = new CCustomer("Klaus", "Klaus", "19.02.1990", "klaus@gmx.de", "123456", _BRK);
+        CCustomer Cust2 = new CCustomer("Dieter", "Dieter", "19.02.1990", "klaus@gmx.de", "123456", _BRK);
+        CCustomer Cust3 = new CCustomer("Hans", "Hans", "19.02.1990", "klaus@gmx.de", "123456", _BRK);
+        CCustomer Cust4 = new CCustomer("Werner", "Werner", "19.02.1990", "klaus@gmx.de", "123456", _BRK);
+        CCustomer Cust5 = new CCustomer("Magarete", "Magarete", "19.02.1990", "klaus@gmx.de", "123456", _BRK);
+        
+        CNewsletter Newsletterlist = new CNewsletter();
+        Newsletterlist.putToNewsletter(Cust1, "Action");
+        Newsletterlist.putToNewsletter(Cust2, "Action");
+        Newsletterlist.putToNewsletter(Cust3, "Drama");
+        Newsletterlist.putToNewsletter(Cust4, "Heimatfilme");
+        Newsletterlist.putToNewsletter(Cust5, "Heimatfilme");
+        
+        ArrayList<CCustomer> result1 =  Newsletterlist.sendNewsletter("Action");
+        assertEquals(2, result1.size());
+        
+        ArrayList<CCustomer> result2 =  Newsletterlist.sendNewsletter("Drama");
+        assertEquals(1, result2.size());
+        
+        ArrayList<CCustomer> result3 =  Newsletterlist.sendNewsletter("Heimatfilme");
+        assertEquals(2, result3.size());
+        
+        ArrayList<CCustomer> result4 =  Newsletterlist.sendNewsletter("Kultur");
+        assertEquals(0, result4.size());
     }
     
 }
