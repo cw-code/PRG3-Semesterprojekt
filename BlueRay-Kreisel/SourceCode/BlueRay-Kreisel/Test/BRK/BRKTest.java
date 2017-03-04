@@ -37,9 +37,10 @@ public class BRKTest {
     @Test
     public void testregister() 
     {
+        //Für diesen UnitTest wurden die Benutzereingaben mit Uebergabe der Parameter an den Konstruktor von BRK umgangen.
         BRK instance = new BRK();
-        instance.register(instance, "Hans", "Werner", "08.04.1990", "Hanswerner@web.de", "158545454");
-        instance.register(instance, "Peter", "Klaus", "08.04.1990", "klaus@web.de", "158545454");
+        instance.register(instance);
+        instance.register(instance);
         Assert.assertEquals(2, instance.myCustList.size());
         Assert.assertEquals("Hans", instance.myCustList.get(0).getLastName());
     }
@@ -70,11 +71,12 @@ public class BRKTest {
     @Test
     public void testLogin() 
     {
+        //Für diesen UnitTest wurden die Benutzereingaben mit Uebergabe der Parameter an den Konstruktor von BRK umgangen.
         BRK instance = new BRK();
-        instance.register(instance, "Hans", "Werner", "08.04.1990", "Hanswerner@web.de", "158545454");
-        instance.register(instance, "Peter", "Klaus", "08.04.1990", "klaus@web.de", "158545454cvbxbx");
+        instance.register(instance);
+        instance.register(instance);
         
-        CCustomer result = instance.login(instance, "Hanswerner@web.de", "158545454");
+        CCustomer result = instance.login(instance);
         
         Assert.assertEquals(instance.myCustList.get(0), result);
     }
@@ -84,14 +86,15 @@ public class BRKTest {
      */
     @Test
     public void testShowAllBR() {
+        //Für diesen UnitTest wurden die Benutzereingaben mit Uebergabe der Parameter an den Konstruktor von BRK umgangen.
         System.out.println("showAllBR");
         
         BRK instance = new BRK();
        
-        instance.register(instance, "Hans", "Werner", "08.04.1990", "Hanswerner@web.de", "158545454");
-        instance.register(instance, "Peter", "Klaus", "08.04.1990", "klaus@web.de", "158545454");
-        instance.register(instance, "Klaus", "Werner", "08.04.1990", "werner@web.de", "158545454");
-        instance.register(instance, "Heinz", "Klaus", "08.04.1990", "heinz@web.de", "158545454");
+        instance.register(instance);
+        instance.register(instance);
+        instance.register(instance);
+        instance.register(instance);
         CBluRay BR1 = new CBluRay( instance.myCustList.get(0), BRState.OWNER, "Minions", "Kinder", 12);
         CBluRay BR2 = new CBluRay( instance.myCustList.get(1), BRState.OWNER, "Transformers", "Kinder", 12);
         CBluRay BR3 = new CBluRay( instance.myCustList.get(2), BRState.OWNER, "EscapePlan", "Kinder", 12);
@@ -121,14 +124,16 @@ public class BRKTest {
      */
     @Test
     public void testSearchBR() {
+        
+        //Für diesen UnitTest wurden die Benutzereingaben mit Uebergabe der Parameter an den Konstruktor von BRK umgangen.
         System.out.println("searchBR");
         
         BRK instance = new BRK();
         
-        instance.register(instance, "Hans", "Werner", "08.04.1990", "Hanswerner@web.de", "158545454");
-        instance.register(instance, "Peter", "Klaus", "08.04.1990", "klaus@web.de", "158545454");
-        instance.register(instance, "Klaus", "Werner", "08.04.1990", "werner@web.de", "158545454");
-        instance.register(instance, "Heinz", "Klaus", "08.04.1990", "heinz@web.de", "158545454");
+        instance.register(instance);
+        instance.register(instance);
+        instance.register(instance);
+        instance.register(instance);
         CBluRay BR1 = new CBluRay( instance.myCustList.get(0), BRState.OWNER, "Minions", "Kinder", 12);
         CBluRay BR2 = new CBluRay( instance.myCustList.get(1), BRState.OWNER, "Transformers", "Kinder", 12);
         CBluRay BR3 = new CBluRay( instance.myCustList.get(2), BRState.OWNER, "EscapePlan", "Kinder", 16);
